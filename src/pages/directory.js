@@ -18,7 +18,11 @@ const Directory = () => {
                 <Container className="mt-5 px-5">
                     <Row className="form-group">
                         <Col size="12">
-                            <input className="form-control" type="text" placeholder="Name" name="name" />
+                            <input 
+                            className="form-control" 
+                            type="text" 
+                            placeholder="Name"
+                             name="name" />
                         </Col>
                     </Row>
                     <Row className="form-group">
@@ -38,6 +42,16 @@ const Directory = () => {
                                 type="text"
                                 placeholder="Phone Number"
                                 name="phone"
+                            />
+                        </Col>
+                    </Row>
+                    <Row className="form-group">
+                        <Col size="12">
+                            <input
+                                className="form-control"
+                                type="text"
+                                placeholder="Department"
+                                name="department"
                             />
                         </Col>
                     </Row>

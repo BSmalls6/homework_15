@@ -1,69 +1,54 @@
 import React, { Component } from "react";
 import Container from "../components/Container";
-import api from "../Utils/api";
+// import api from "../Utils/api";
+import gatherEmployees from "../Utils/employeemodel";
 
 class Table extends Component {
-
-  state = {
-    result: []
-  }
-
-
-  componentDidMount() {
-    this.gatherEmployees();
+componentDidMount() {
+    gatherEmployees();
+   
   };
 
-  gatherEmployees() {
-    return new Promise((resolve, reject) => {
-      api.search()
-        .then((res) => {
-          const users = res.data.results;
-          const results = users.map((user) => {
-            return {
-              name: user.name.first + user.lastname,
-              email: user.email,
-              phone: user.phone,
-            };
-          });
-          resolve(results);
-        }).catch(err => reject(err));
-      //   .then(res => console.log(res.data.results[2]))
-      //   // .then(res => this.setState({ result: res.data.results }))
-
-
-      // // (console.log(this.state));
-      });
-    };
+  
 
   render() {
+    console.log(this.state);
     return (
+
       <Container>
-        <table className="table table-striped">
+        <div className="mt-4">
+                <h2>Employee List</h2> <button className="btn btn-success" type="submit">
+                        Sort
+              </button>
+            </div>
+        <table className="table">
           <thead>
             <tr>
               <th scope="col">Name</th>
               <th scope="col">Email</th>
               <th scope="col">Phone</th>
+              <th scope="col">Department</th>
             </tr>
           </thead>
           <tbody>
+         
             <tr>
-              <th scope="row">1</th>
-              <td>Matt</td>
-              <td>Otto</td>
-              <td>@mdo</td>
+              <th scope="row">Scotty</th>
+              <td>beammeup@gmail.com</td>
+              <td>2064065067</td>
+              <td>Technology</td>
             </tr>
             <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
+              <th scope="row">Kirk</th>
+              <td>Ih8rulez@gmail.com</td>
+              <td>2064065067</td>
+              <td>LEadership</td>
             </tr>
             <tr>
-              <th scope="row">3</th>
-              <td>Larry</td>
-              <td>the Bird</td>
-              <td>@twitter</td>
+              <th scope="row">Spock</th>
+              <td>neckpincher24@starfleet.net</td>
+              <td>2064065067</td>
+              <td>Stick in the mud</td>
             </tr>
           </tbody>
         </table>
